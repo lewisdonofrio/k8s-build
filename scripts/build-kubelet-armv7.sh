@@ -76,6 +76,9 @@ export GOARCH=arm
 export GOARM=7
 export CGO_ENABLED=0
 
+# Force Kubernetes build system to honor cross-compile settings
+export KUBE_BUILD_PLATFORMS="linux/arm"
+
 make WHAT=cmd/kubelet
 
 # -----------------------------------------------------------------------------

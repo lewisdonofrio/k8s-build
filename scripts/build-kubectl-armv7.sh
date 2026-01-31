@@ -36,6 +36,8 @@ go clean -cache -modcache
 
 echo "[5/7] Cross-compiling kubectl for ARMv7..."
 export GOOS=linux GOARCH=arm GOARM=7 CGO_ENABLED=0
+echo "Force Kubernetes build system to honor cross-compile settings"
+export KUBE_BUILD_PLATFORMS="linux/arm"
 make WHAT=cmd/kubectl
 
 echo "[6/7] Packaging artifact..."
